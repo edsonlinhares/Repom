@@ -1,0 +1,100 @@
+<br><br><br><br>
+<div class="container main-container">
+
+    <div class="box box-success">
+        <div class="box-header">
+            <div style="padding: 0;">
+                <div style="font-size: 28px;color: green;padding: 0;">Detalhes do clientes</div>
+            </div>
+        </div>
+    </div>
+
+    <form class="box box-default box-form">
+
+        <div class="form-row">
+
+            <dl class="dl-horizontal">
+
+                <dt> Cpf </dt>
+                <dd>{{ cliente.cpf }}</dd>
+
+                <dt>RG </dt>
+                <dd> {{ cliente.rg}} </dd>
+
+                <dt> Data de nascimento </dt>
+                <dd> {{ cliente.dayOfBirthday }}/{{ cliente.monthOfBirthday }}/{{ cliente.yearOfBirthday }} </dd>
+
+                
+                <dt>Tipo </dt>
+                <dd> {{ cliente.relationshipType}} </dd>
+
+                <dt>Status </dt>
+                <dd> {{ cliente.status}} </dd>
+
+                <dt> CNH </dt>
+                <dd> {{ cliente.cnhNumber }} </dd>
+
+                <dt> Celular </dt>
+                <dd> {{ cliente.cellPhone }} </dd>
+
+                <dt> Telefone 1 </dt>
+                <dd> {{ cliente.phone1}} </dd>
+
+                <dt>Telefone 2 </dt>
+                <dd> {{ cliente.phone2 }} </dd>
+            </dl>
+        </div>
+
+        <div class="box box-primary"></div>
+
+    </form>
+
+    <div class="box box-default box-form">
+
+        <table class="table table-condensed table-striped table-hover responsive" style="width:100%" id="table_id">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        Número
+                    </th>
+                    <th>
+                        Bandeira
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        R$ Saldo
+                    </th>
+                    <th>
+                        Descrição
+                    </th>
+
+                    <th style="width:70px;"></th>
+                </tr>
+            </thead>
+
+            <tr *ngFor="let item of cartoes">
+
+                <td>
+                    {{ item.cardNumber }}
+                </td>
+
+                <td>
+                    {{ item.cardFlag }}
+                </td>
+                <td>
+                    {{ item.cardStatus }}
+                </td>
+                <td>
+                    {{ item.totalBalance | currency:'BRL':'symbol':'1.2-2':'pt'}}
+                </td>
+                <td>
+                    {{ item.description }}
+                </td>
+
+            </tr>
+
+        </table>
+
+</div>
